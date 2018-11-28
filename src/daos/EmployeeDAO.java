@@ -48,7 +48,30 @@ public class EmployeeDAO {
         }
         return datas;
     }
-    
+    public boolean getdatas(Employee employee, String ef) {
+        boolean result = false;
+        Session session = this.factory.openSession();
+        Transaction transaction = session.beginTransaction();
+        try {
+            if (ef == "save") {
+                session.save(employee);
+            } else if (ef == "update") {
+                session.update(employee);
+            } else if (ef == "delete") {
+                session.delete(employee);
+            }
+            transaction.commit();
+            result = true;
+        } catch (Exception e) {
+            e.printStackTrace();
+            if (transaction != null) {
+                transaction.rollback();
+            }
+        } finally {
+            session.close();
+        }
+        return result;
+    }
     public List<Employee> getAllEmployee() {
         return data("from Employee");
     }
@@ -122,5 +145,16 @@ public class EmployeeDAO {
             session.close();
         }
         return datas;
+    }
+    public boolean insert(Employee employee) {
+        return getdatas(employee, "save");
+    }
+
+    public boolean update(Employee employee) {
+        return getdatas(employee, "update");
+    }
+
+    public boolean delete(Employee employee) {
+        return getdatas(employee, "delete");
     }
 }

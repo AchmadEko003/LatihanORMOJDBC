@@ -49,11 +49,12 @@ public class LatihanORMOJDBC {
 //            System.out.println("");
 //        }
 
-        for(Job emp : edao.selectJobId()){
-            System.out.println(emp.getJobId());
-        }
+//        for(Employee emp : edao.getAllEmployee()){
+//            System.out.println(emp.getEmployeeId());
+//        }
         //System.out.println(edao.getEmployeeId(98).getLastName());
-
+BigDecimal nil = BigDecimal.valueOf(209);
+        
 //        BigDecimal nil = BigDecimal.valueOf(12);
 //        Region region = new Region(nil, "Kal");
 //        System.out.println(rc.deleteData(region));

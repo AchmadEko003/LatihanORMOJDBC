@@ -127,6 +127,7 @@ public class Employee implements Serializable {
         this.jobId = jobId;
         this.departmentList = departmentList;
     }
+    
 
     public Integer getEmployeeId() {
         return employeeId;
