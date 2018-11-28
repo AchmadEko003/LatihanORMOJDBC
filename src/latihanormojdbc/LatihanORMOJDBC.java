@@ -31,7 +31,7 @@ public class LatihanORMOJDBC {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
+        SessionFactory sessionFactory = NewHibernateUtil.getSessionFactory();
         RegionDAO rdao = new RegionDAO(sessionFactory);
         RegionControllers rc = new RegionControllers(sessionFactory);
         EmployeeControllers ec = new EmployeeControllers(sessionFactory);
