@@ -75,11 +75,11 @@ public class LocationDAO {
     }
 
     public List<Location> getAllLocation() {
-        return data("FROM Location");
+        return data("FROM location");
     }
             
     public List<Location> searchData(Object object) {
-        String query = "FROM LOCATION WHERE locationId LIKE '%" + object + "%'"
+        String query = "FROM location WHERE locationId LIKE '%" + object + "%'"
                 + "OR streetAddress LIKE '%" + object + "%'"
                 + "OR postalCode LIKE '%" + object + "%'"
                 + "OR city LIKE '%" + object + "%'"
@@ -105,7 +105,7 @@ public class LocationDAO {
         Session session = this.factory.openSession();
         Transaction transaction = session.beginTransaction();
         try {
-            location = (Location) session.createQuery("FROM LOCATION WHERE locationId = " + id).uniqueResult();
+            location = (Location) session.createQuery("FROM location WHERE locationId = " + id).uniqueResult();
             transaction.commit();
         } catch (Exception e) {
             e.printStackTrace();
