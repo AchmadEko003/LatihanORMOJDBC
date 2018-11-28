@@ -83,7 +83,7 @@ public class LocationDAO {
                 + "OR streetAddress LIKE '%" + object + "%'"
                 + "OR postalCode LIKE '%" + object + "%'"
                 + "OR city LIKE '%" + object + "%'"
-                + "OR stateprovince LIKE '%" + object + "%'"
+                + "OR stateProvince LIKE '%" + object + "%'"
                 + "OR countryId LIKE '%" + object + "%'";
         return data(query);
     }
