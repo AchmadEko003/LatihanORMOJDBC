@@ -9,7 +9,12 @@ import daos.EmployeeDAO;
 import entities.Department;
 import entities.Employee;
 import entities.Job;
+import java.math.BigDecimal;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 import org.hibernate.SessionFactory;
 
 /**
@@ -20,6 +25,7 @@ public class EmployeeControllers {
 
     private SessionFactory factory;
     private EmployeeDAO edao;
+    java.util.Date date = new java.util.Date();
 
     public EmployeeControllers() {
     }
@@ -53,4 +59,43 @@ public class EmployeeControllers {
         return edao.selectDepartmentId();
     }
 
+    public boolean insertEmployee(String employeeId, String firstName, String lastName, String email, String phoneNumber, String hireDate, String jobId, String salary, String commissionPct, String managerId, String departmentId) {
+        boolean result = false;
+        int employeeid = Integer.valueOf(employeeId);
+        try {
+            DateFormat format = new SimpleDateFormat("dd-MMM-yyyy", Locale.ENGLISH);
+            Date dates = format.parse(hireDate);
+            short sal = Short.valueOf(salary);
+            short com = Short.valueOf(commissionPct);
+            int managerid = Integer.valueOf(managerId);
+            Employee emp = new Employee(managerid);
+            Job job = new Job(jobId);
+            Department department = new Department(Short.valueOf(departmentId));
+            Employee employee = new Employee(employeeid, firstName, lastName, email, phoneNumber, dates, job, sal, com, emp, department);
+            result = edao.insert(employee);
+        } catch (Exception e) {
+            e.getMessage();
+        }
+        return result;
+    }
+    
+    public boolean updateEmployee(String employeeId, String firstName, String lastName, String email, String phoneNumber, String hireDate, String jobId, String salary, String commissionPct, String managerId, String departmentId) {
+        boolean result = false;
+        int employeeid = Integer.valueOf(employeeId);
+        try {
+            DateFormat format = new SimpleDateFormat("dd-MMM-yyyy", Locale.ENGLISH);
+            Date dates = format.parse(hireDate);
+            short sal = Short.valueOf(salary);
+            short com = Short.valueOf(commissionPct);
+            int managerid = Integer.valueOf(managerId);
+            Employee emp = new Employee(managerid);
+            Job job = new Job(jobId);
+            Department department = new Department(Short.valueOf(departmentId));
+            Employee employee = new Employee(employeeid, firstName, lastName, email, phoneNumber, dates, job, sal, com, emp, department);
+            result = edao.update(employee);
+        } catch (Exception e) {
+            e.getMessage();
+        }
+        return result;
+    }
 }

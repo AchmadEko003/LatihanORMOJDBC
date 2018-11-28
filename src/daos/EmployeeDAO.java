@@ -30,7 +30,7 @@ public class EmployeeDAO {
     public EmployeeDAO(SessionFactory factory) {
         this.factory = factory;
     }
-    
+
     public List<Employee> data(String query) {
         List<Employee> datas = new ArrayList<>();
         Session session = this.factory.openSession();
@@ -48,6 +48,7 @@ public class EmployeeDAO {
         }
         return datas;
     }
+
     public boolean getdatas(Employee employee, String ef) {
         boolean result = false;
         Session session = this.factory.openSession();
@@ -72,10 +73,11 @@ public class EmployeeDAO {
         }
         return result;
     }
+
     public List<Employee> getAllEmployee() {
         return data("from Employee");
     }
-    
+
     public Employee getEmployeeId(Object id) {
         Employee datas = new Employee();
         Session session = this.factory.openSession();
@@ -93,7 +95,7 @@ public class EmployeeDAO {
         }
         return datas;
     }
-    
+
     public List<Employee> searchData(Object data) {
         String query = "FROM Employee where employee_id LIKE '%" + data + "%'"
                 + " OR first_name LIKE '%" + data + "%'"
@@ -108,7 +110,7 @@ public class EmployeeDAO {
                 + " OR department_id LIKE '%" + data + "%'";
         return data(query);
     }
-    
+
     public List<Department> selectDepartmentId() {
         List<Department> datas = new ArrayList<>();
         String query = "FROM Department";
@@ -127,7 +129,7 @@ public class EmployeeDAO {
         }
         return datas;
     }
-    
+
     public List<Job> selectJobId() {
         List<Job> datas = new ArrayList<>();
         String query = "FROM Job";
@@ -146,6 +148,7 @@ public class EmployeeDAO {
         }
         return datas;
     }
+
     public boolean insert(Employee employee) {
         return getdatas(employee, "save");
     }
