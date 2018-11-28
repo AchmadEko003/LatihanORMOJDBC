@@ -95,6 +95,20 @@ public class LocationDAO {
     public boolean delete(Location location) {
         return getdatas(location, "delete");
     }
+    
+    public boolean remove(Location location) {
+        boolean result = false;
+        Session session = this.factory.openSession();
+        Transaction transaction = session.beginTransaction();
+        try {
+            session.delete(location);
+            transaction.commit();
+            result = true;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return result;
+    }
 
     public boolean update(Location location) {
         return getdatas(location, "update");

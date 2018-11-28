@@ -35,9 +35,9 @@ public class LocationController {
         return ldao.save(location);
     }
 
-    public boolean deleteLocation(String locationId) {
+    public boolean deleteLocation(String locationId, String City) {
         Short locationid = Short.valueOf(locationId);
-        Location location = new Location(locationid);
+        Location location = new Location(locationid, City);
         return ldao.delete(location);
     }
     
