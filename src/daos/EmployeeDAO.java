@@ -123,4 +123,93 @@ public class EmployeeDAO {
         }
         return datas;
     }
+    //---------------------------------------------getAll,getid,search------------------------------------------
+     public boolean datas (Employee employe, String le){
+        boolean result = false;
+        Session session = this.factory.openSession();
+        Transaction transaction = session.beginTransaction();
+        try {
+            if(le == "save" ){
+                session.save(employe);
+            }else if (le == "update"){
+                session.update(employe);
+            }else if (le == "delete"){
+                session.delete(employe);
+            }
+            transaction.commit();
+            result = true;
+        } catch (Exception e) {
+            e.printStackTrace();
+            if(transaction != null){
+                session.close();
+            }
+        }finally{
+            session.close();
+        }
+        return result;
+    }
+    public List<Employee> datas(String query){
+        List<Employee> datas = new ArrayList<>();
+        Session session = this.factory.openSession();
+        Transaction transaction = session.beginTransaction();
+        try {
+            datas = session.createQuery(query).list();
+            transaction.commit();
+        } catch (Exception e) {
+            e.printStackTrace();
+            if(transaction!=null){
+                transaction.rollback();
+            }
+        }finally{
+            session.close();
+            
+        }
+        return datas;
+    }
+//    public List<Employee> getAllEmployee(){
+//        return datas("From Employee");
+//    }
+    public List<Employee> getIdEmployee(Object id){
+        List<Employee> datas = new ArrayList<>();
+        Session session = this.factory.openSession();
+        Transaction transaction = session.beginTransaction();
+        try {
+            datas = session.createQuery("From Employee where employeeId= " + id).list();
+            transaction.commit();
+        } catch (Exception e) {
+            e.printStackTrace();
+            if(transaction!=null){
+                transaction.rollback();
+            }
+        }finally{
+            session.close();
+            
+        }
+        return datas;
+    }
+     public List<Employee> getSearchEmployee(Object data){
+        String query = "FROM Employee where employeeId LIKE '%" + data + "%'"
+                + " OR firstName LIKE '%" + data + "%'"
+                + " OR lastName LIKE '%" + data + "%'"
+                + " OR email LIKE '%" + data + "%'"
+                + " OR phoneNumber LIKE '%" + data + "%'"
+                + " OR hireDate LIKE '%" + data + "%'"
+                + " OR jobId LIKE '%" + data + "%'"
+                + " OR salary LIKE '%" + data + "%'"
+                + " OR commissionPct LIKE '%" + data + "%'"
+                + " OR managerId LIKE '%" + data + "%'"
+                + " OR departmentId LIKE '%" + data + "%'";
+        return datas(query);
+    }
+    
+      public boolean insert(Employee employee){
+         return datas(employee, "save");
+     }
+     
+      public boolean update(Employee employee){
+         return datas(employee, "update");
+     }
+      public boolean delete(Employee employee){
+         return datas(employee, "delete");
+     }
 }
