@@ -5,6 +5,7 @@
  */
 package latihanormojdbc;
 
+import controllers.EmployeeControllers;
 import controllers.RegionControllers;
 import daos.EmployeeDAO;
 import daos.RegionDAO;
@@ -31,6 +32,7 @@ public class LatihanORMOJDBC {
         SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
         RegionDAO rdao = new RegionDAO(sessionFactory);
         RegionControllers rc = new RegionControllers(sessionFactory);
+        EmployeeControllers ec = new EmployeeControllers(sessionFactory);
         EmployeeDAO edao = new EmployeeDAO(sessionFactory);
 //        for (Region allregion : rdao.getAllRegion()) {
 //            System.out.println(allregion.getRegionName());
@@ -53,7 +55,11 @@ public class LatihanORMOJDBC {
 //            System.out.println(emp.getEmployeeId());
 //        }
         //System.out.println(edao.getEmployeeId(98).getLastName());
-BigDecimal nil = BigDecimal.valueOf(209);
+        
+        BigDecimal nil = BigDecimal.valueOf(209);
+        Employee region = new Employee(209);
+        System.out.println(ec.deleteData(region));
+        //System.out.println(rc.updateData(region));
         
 //        BigDecimal nil = BigDecimal.valueOf(12);
 //        Region region = new Region(nil, "Kal");
@@ -61,6 +67,36 @@ BigDecimal nil = BigDecimal.valueOf(209);
 //        System.out.println(rc.updateData(region));
 //        for(Employee emp : edao.searchData("Eko")){
 //            System.out.println(emp.getLastName());
+//        }
+        
+        //----------------------------------------getAll,getid,search Employees---------------------------------------
+//        EmployeeDAO edao = new EmployeeDAO(sessionFactory);
+//        System.out.println("GET ALL");
+//        for (Employee allEmployee : edao.getAllEmployee()){
+//            System.out.println (allEmployee.getEmployeeId()+" "+ allEmployee.getFirstName()
+//                               +" "+ allEmployee.getLastName() +" "+ allEmployee.getEmail()
+//                               +" "+ allEmployee.getPhoneNumber() +" "+ allEmployee.getHireDate()
+//                               +" "+ allEmployee.getJobId() +" "+ allEmployee.getSalary()
+//                               +" "+ allEmployee.getCommissionPct() +" "+ allEmployee.getManagerId()
+//                               +" "+ allEmployee.getDepartmentId()); 
+//            
+//        }
+//        System.out.println("GET BY ID");
+//        for(Employee getid : edao.getIdEmployee(100)){
+//            System.out.println(getid.getEmployeeId()+" "+ getid.getFirstName()
+//                               +" "+ getid.getLastName() +" "+ getid.getEmail()
+//                               +" "+ getid.getPhoneNumber() +" "+ getid.getHireDate()
+//                               +" "+ getid.getJobId() +" "+ getid.getSalary()
+//                               +" "+ getid.getCommissionPct() +" "+ getid.getManagerId()
+//                               +" "+ getid.getDepartmentId());
+//        System.out.println("SEARCH");
+//        for(Employee getSearch : edao.getSearchEmployee("1")){
+//            System.out.println(getSearch.getEmployeeId()+" "+ getSearch.getFirstName()
+//                               +" "+ getSearch.getLastName() +" "+ getSearch.getEmail()
+//                               +" "+ getSearch.getPhoneNumber() +" "+ getSearch.getHireDate()
+//                               +" "+ getSearch.getJobId() +" "+ getSearch.getSalary()
+//                               +" "+ getSearch.getCommissionPct() +" "+ getSearch.getManagerId()
+//                               +" "+ getSearch.getDepartmentId());
 //        }
     }
 }

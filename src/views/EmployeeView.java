@@ -23,7 +23,7 @@ import org.hibernate.SessionFactory;
  *
  * @author Nitani
  */
-public class RegionView extends javax.swing.JFrame {
+public class EmployeeView extends javax.swing.JFrame {
 
     //private DepartmentDAO ddao;
     private EmployeeDAO edao;
@@ -34,7 +34,7 @@ public class RegionView extends javax.swing.JFrame {
     /**
      * Creates new form RegionView
      */
-    public RegionView() {
+    public EmployeeView() {
         initComponents();
         selectJobId();
         selectEmployeeId();
@@ -534,45 +534,45 @@ public class RegionView extends javax.swing.JFrame {
     private void insertbuttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_insertbuttonActionPerformed
 
 //        // TODO add your handling code here:
-        String employeeid = employeeid_field.getText();
-        String firstname = firstname_field.getText();
-        String lastname = lastname_field.getText();
-        String email = email_field.getText();
-        String phonenumber = phonenumber_field.getText();
-        String hiredate = hiredate_field.getText();
-        String jobid = (String) jobid_field.getSelectedItem();
-        String salary = salary_field.getText();
-        String commissionpct = commissionpct_field.getText();
-        String managerId = (String) cbxmanageId.getSelectedItem();
-        String departmentid = (String) cbxDepartmentId.getSelectedItem();
-        String jobId = jobid.substring(0, jobid.indexOf(" "));
-        String mngId = managerId.substring(0, managerId.indexOf(" "));
-        String dprtId = departmentid.substring(0, departmentid.indexOf(" "));
-
-        if (!employeeid.equals("") && !firstname.equals("")
-            && !lastname.equals("") && !email.equals("")
-            && !phonenumber.equals("") && !hiredate.equals("")
-            && !jobid.equals("") && !salary.equals("")
-            && !commissionpct.equals("") && !managerId.equals("")
-            && !departmentid.equals("")) {
-            if (employeeController.insert(firstname,
-                lastname, email,
-                phonenumber,
-                hiredate, jobId,
-                salary, commissionpct,
-                mngId, dprtId, employeeid)) {
-            JOptionPane.showMessageDialog(null, "insert berhasil");
-            //kosongData();
-            bindingTable(employeeController.gets());
-            employeeid_field.setEnabled(false);
-            employeeid_field.setText(employeeController.lastId());
-        } else {
-            JOptionPane.showMessageDialog(null, "insert gagal");
-        }
-
-        } else {
-            JOptionPane.showMessageDialog(null, "form input tidak boleh kosong");
-        }
+//        String employeeid = employeeid_field.getText();
+//        String firstname = firstname_field.getText();
+//        String lastname = lastname_field.getText();
+//        String email = email_field.getText();
+//        String phonenumber = phonenumber_field.getText();
+//        String hiredate = hiredate_field.getText();
+//        String jobid = (String) jobid_field.getSelectedItem();
+//        String salary = salary_field.getText();
+//        String commissionpct = commissionpct_field.getText();
+//        String managerId = (String) cbxmanageId.getSelectedItem();
+//        String departmentid = (String) cbxDepartmentId.getSelectedItem();
+//        String jobId = jobid.substring(0, jobid.indexOf(" "));
+//        String mngId = managerId.substring(0, managerId.indexOf(" "));
+//        String dprtId = departmentid.substring(0, departmentid.indexOf(" "));
+//
+//        if (!employeeid.equals("") && !firstname.equals("")
+//            && !lastname.equals("") && !email.equals("")
+//            && !phonenumber.equals("") && !hiredate.equals("")
+//            && !jobid.equals("") && !salary.equals("")
+//            && !commissionpct.equals("") && !managerId.equals("")
+//            && !departmentid.equals("")) {
+//            if (employeeController.insert(firstname,
+//                lastname, email,
+//                phonenumber,
+//                hiredate, jobId,
+//                salary, commissionpct,
+//                mngId, dprtId, employeeid)) {
+//            JOptionPane.showMessageDialog(null, "insert berhasil");
+//            //kosongData();
+//            bindingTable(employeeController.gets());
+//            employeeid_field.setEnabled(false);
+//            employeeid_field.setText(employeeController.lastId());
+//        } else {
+//            JOptionPane.showMessageDialog(null, "insert gagal");
+//        }
+//
+//        } else {
+//            JOptionPane.showMessageDialog(null, "form input tidak boleh kosong");
+//        }
     }//GEN-LAST:event_insertbuttonActionPerformed
 
     private void searchIdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchIdActionPerformed
@@ -641,20 +641,21 @@ public class RegionView extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(RegionView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(EmployeeView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(RegionView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(EmployeeView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(RegionView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(EmployeeView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(RegionView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(EmployeeView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new RegionView().setVisible(true);
+                new EmployeeView().setVisible(true);
             }
         });
     }
