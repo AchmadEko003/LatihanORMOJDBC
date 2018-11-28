@@ -5,7 +5,11 @@
  */
 package daos;
 
+import entities.Department;
 import entities.Employee;
+import entities.Job;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 import org.hibernate.Session;
@@ -82,4 +86,41 @@ public class EmployeeDAO {
         return data(query);
     }
     
+    public List<Department> selectDepartmentId() {
+        List<Department> datas = new ArrayList<>();
+        String query = "FROM Department";
+        Session session = this.factory.openSession();
+        Transaction transaction = session.beginTransaction();
+        try {
+            datas = session.createQuery(query).list();
+            transaction.commit();
+        } catch (Exception e) {
+            e.printStackTrace();
+            if (transaction != null) {
+                transaction.rollback();
+            }
+        } finally {
+            session.close();
+        }
+        return datas;
+    }
+    
+    public List<Job> selectJobId() {
+        List<Job> datas = new ArrayList<>();
+        String query = "FROM Job";
+        Session session = this.factory.openSession();
+        Transaction transaction = session.beginTransaction();
+        try {
+            datas = session.createQuery(query).list();
+            transaction.commit();
+        } catch (Exception e) {
+            e.printStackTrace();
+            if (transaction != null) {
+                transaction.rollback();
+            }
+        } finally {
+            session.close();
+        }
+        return datas;
+    }
 }

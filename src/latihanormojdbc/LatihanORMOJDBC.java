@@ -11,6 +11,7 @@ import daos.RegionDAO;
 import entities.Country;
 import entities.Department;
 import entities.Employee;
+import entities.Job;
 import entities.Location;
 import entities.Region;
 import java.math.BigDecimal;
@@ -48,10 +49,10 @@ public class LatihanORMOJDBC {
 //            System.out.println("");
 //        }
 
-//        for(Employee emp : edao.getAllEmployee()){
-//            System.out.println(emp.getLastName());
-//        }
-        System.out.println(edao.getEmployeeId(98).getLastName());
+        for(Job emp : edao.selectJobId()){
+            System.out.println(emp.getJobId());
+        }
+        //System.out.println(edao.getEmployeeId(98).getLastName());
 
 //        BigDecimal nil = BigDecimal.valueOf(12);
 //        Region region = new Region(nil, "Kal");
