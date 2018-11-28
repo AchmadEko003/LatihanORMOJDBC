@@ -6,6 +6,7 @@
 package latihanormojdbc;
 
 import controllers.RegionControllers;
+import daos.EmployeeDAO;
 import daos.RegionDAO;
 import entities.Country;
 import entities.Department;
@@ -29,6 +30,7 @@ public class LatihanORMOJDBC {
         SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
         RegionDAO rdao = new RegionDAO(sessionFactory);
         RegionControllers rc = new RegionControllers(sessionFactory);
+        EmployeeDAO edao = new EmployeeDAO(sessionFactory);
 //        for (Region allregion : rdao.getAllRegion()) {
 //            System.out.println(allregion.getRegionName());
 //            for (Country country : allregion.getCountryList()) {
@@ -46,17 +48,17 @@ public class LatihanORMOJDBC {
 //            System.out.println("");
 //        }
 
-//        for(Region reg : rc.getAllRegion()){
-//            System.out.println(reg.getRegionName());
+//        for(Employee emp : edao.getAllEmployee()){
+//            System.out.println(emp.getLastName());
 //        }
-        //System.out.println(rc.getRegionId(3).getRegionName());
+        System.out.println(edao.getEmployeeId(98).getLastName());
 
-        BigDecimal nil = BigDecimal.valueOf(12);
-        Region region = new Region(nil, "Kal");
-        System.out.println(rc.deleteData(region));
+//        BigDecimal nil = BigDecimal.valueOf(12);
+//        Region region = new Region(nil, "Kal");
+//        System.out.println(rc.deleteData(region));
 //        System.out.println(rc.updateData(region));
-//        for(Region reg : rc.getSearch("JR")){
-//            System.out.println(reg.getRegionName());
+//        for(Employee emp : edao.searchData("Eko")){
+//            System.out.println(emp.getLastName());
 //        }
     }
 }
