@@ -63,8 +63,10 @@ public class EmployeeControllers {
         boolean result = false;
         int employeeid = Integer.valueOf(employeeId);
         try {
-            DateFormat format = new SimpleDateFormat("dd-MMM-yyyy", Locale.ENGLISH);
+            DateFormat format = new SimpleDateFormat("MM/dd/yyyy", Locale.ENGLISH);
+            System.out.println(hireDate);
             Date dates = format.parse(hireDate);
+            System.out.println(dates);
             short sal = Short.valueOf(salary);
             short com = Short.valueOf(commissionPct);
             int managerid = Integer.valueOf(managerId);
@@ -72,7 +74,8 @@ public class EmployeeControllers {
             Job job = new Job(jobId);
             Department department = new Department(Short.valueOf(departmentId));
             Employee employee = new Employee(employeeid, firstName, lastName, email, phoneNumber, dates, job, sal, com, emp, department);
-            result = edao.insert(employee);
+            edao.insert(employee);
+            result = true;
         } catch (Exception e) {
             e.getMessage();
         }
