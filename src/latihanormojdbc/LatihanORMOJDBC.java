@@ -30,7 +30,7 @@ public class LatihanORMOJDBC {
         // TODO code application logic here
         SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
         RegionDAO rdao = new RegionDAO(sessionFactory);
-        RegionControllers rc = new RegionControllers(sessionFactory);
+//        RegionControllers rc = new RegionControllers(sessionFactory);
         EmployeeDAO edao = new EmployeeDAO(sessionFactory);
 //        for (Region allregion : rdao.getAllRegion()) {
 //            System.out.println(allregion.getRegionName());
@@ -92,4 +92,5 @@ public class LatihanORMOJDBC {
                                +" "+ getSearch.getDepartmentId());
         }
     }
+}
 }

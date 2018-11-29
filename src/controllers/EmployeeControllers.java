@@ -24,13 +24,13 @@ public class EmployeeControllers {
         this.factory = factory;
         this.edao = new EmployeeDAO();
     }
-    public List<Employee> getAllEmployee(){
+    public List<Employee> getAll(){
         return edao.getAllEmployee();
     }
-    public List<Employee> getIdEmployee(Object id){
+    public List<Employee> getId(Object id){
         return edao. getIdEmployee(id);
     }
-    public List<Employee> getSearchEmployee(Object data){
+    public List<Employee> Search(Object data){
         return  edao.getSearchEmployee(data);
     }
     
