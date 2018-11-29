@@ -5,8 +5,10 @@
  */
 package latihanormojdbc;
 
+import controllers.JobController;
 import controllers.RegionControllers;
 import daos.EmployeeDAO;
+import daos.JobDAO;
 import daos.RegionDAO;
 import entities.Country;
 import entities.Department;
@@ -32,6 +34,8 @@ public class LatihanORMOJDBC {
         RegionDAO rdao = new RegionDAO(sessionFactory);
         RegionControllers rc = new RegionControllers(sessionFactory);
         EmployeeDAO edao = new EmployeeDAO(sessionFactory);
+        JobDAO jdao = new JobDAO(sessionFactory);
+        JobController jc = new JobController(sessionFactory);
 //        for (Region allregion : rdao.getAllRegion()) {
 //            System.out.println(allregion.getRegionName());
 //            for (Country country : allregion.getCountryList()) {
@@ -49,8 +53,12 @@ public class LatihanORMOJDBC {
 //            System.out.println("");
 //        }
 
-        for(Job emp : edao.selectJobId()){
-            System.out.println(emp.getJobId());
+//        for(Job emp : edao.selectJobId()){
+//            System.out.println(emp.getJobId());
+//        }
+        
+        for (Job allJob : jc.getAllJobs()) {
+            System.out.println(allJob.getJobId() + " - " + allJob.getJobTitle());
         }
         //System.out.println(edao.getEmployeeId(98).getLastName());
 
