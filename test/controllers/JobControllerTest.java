@@ -7,9 +7,6 @@ package controllers;
 
 import entities.Job;
 import java.util.List;
-import latihanormojdbc.HibernateUtil;
-import org.hibernate.Hibernate;
-import org.hibernate.SessionFactory;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -22,7 +19,7 @@ import static org.junit.Assert.*;
  * @author Igaz
  */
 public class JobControllerTest {
-    private SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
+    
     public JobControllerTest() {
     }
     
@@ -48,12 +45,12 @@ public class JobControllerTest {
     @Test
     public void testGetAllJobs() {
         System.out.println("getAllJobs");
-        JobController instance = new JobController(sessionFactory);
-        List<Job> expResult = instance.getAllJobs();
+        JobController instance = new JobController();
+        List<Job> expResult = null;
         List<Job> result = instance.getAllJobs();
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
-//        fail("The test case is a prototype.");
+        fail("The test case is a prototype.");
     }
 
     /**
@@ -63,12 +60,12 @@ public class JobControllerTest {
     public void testSearchJobs() {
         System.out.println("searchJobs");
         Object object = null;
-        JobController instance = new JobController(sessionFactory);
-        List<Job> expResult = instance.searchJobs(object);
+        JobController instance = new JobController();
+        List<Job> expResult = null;
         List<Job> result = instance.searchJobs(object);
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
-//        fail("The test case is a prototype.");
+        fail("The test case is a prototype.");
     }
 
     /**
@@ -78,12 +75,12 @@ public class JobControllerTest {
     public void testGetByIdJob() {
         System.out.println("getByIdJob");
         Object object = null;
-        JobController instance = new JobController(sessionFactory);
-        Job expResult = instance.getByIdJob(object);
+        JobController instance = new JobController();
+        Job expResult = null;
         Job result = instance.getByIdJob(object);
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
-//        fail("The test case is a prototype.");
+        fail("The test case is a prototype.");
     }
 
     /**
@@ -92,13 +89,16 @@ public class JobControllerTest {
     @Test
     public void testInsertJob() {
         System.out.println("insertJob");
-        Job job = null;
-        JobController instance = new JobController(sessionFactory);
+        String jobId = "";
+        String jobTitle = "";
+        String minSalary = "";
+        String maxSalary = "";
+        JobController instance = new JobController();
         boolean expResult = false;
-        boolean result = instance.insertJob(job);
+        boolean result = instance.insertJob(jobId, jobTitle, minSalary, maxSalary);
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
-//        fail("The test case is a prototype.");
+        fail("The test case is a prototype.");
     }
 
     /**
@@ -107,13 +107,16 @@ public class JobControllerTest {
     @Test
     public void testUpdateJob() {
         System.out.println("updateJob");
-        Job job = null;
-        JobController instance = new JobController(sessionFactory);
+        String jobId = "";
+        String jobTitle = "";
+        String minSalary = "";
+        String maxSalary = "";
+        JobController instance = new JobController();
         boolean expResult = false;
-        boolean result = instance.updateJob(job);
+        boolean result = instance.updateJob(jobId, jobTitle, minSalary, maxSalary);
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
-//        fail("The test case is a prototype.");
+        fail("The test case is a prototype.");
     }
 
     /**
@@ -122,13 +125,14 @@ public class JobControllerTest {
     @Test
     public void testDeleteJob() {
         System.out.println("deleteJob");
-        Job job = new Job("ADE", "");
-        JobController instance = new JobController(sessionFactory);
-        boolean expResult = true;
-        boolean result = instance.deleteJob(job);
+        String jobId = "";
+        String jobTile = "";
+        JobController instance = new JobController();
+        boolean expResult = false;
+        boolean result = instance.deleteJob(jobId, jobTile);
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
-//        fail("The test case is a prototype.");
+        fail("The test case is a prototype.");
     }
     
 }

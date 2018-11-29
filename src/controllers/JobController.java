@@ -47,19 +47,26 @@ public class JobController {
     /*
     * controller untuk insert data job
     */
-    public boolean insertJob(Job job){
+    public boolean insertJob(String jobId, String jobTitle, String minSalary, String maxSalary) {
+        int salaryMin = Integer.parseInt(minSalary);
+        int salaryMax = Integer.parseInt(maxSalary);
+        Job job = new Job(jobId, jobTitle, salaryMin, salaryMax);
         return jdao.insertJob(job);
     }
     /*
     * controller untuk mengupdate job
     */
-    public boolean updateJob(Job job){
+    public boolean updateJob(String jobId, String jobTitle, String minSalary, String maxSalary) {
+        int salaryMin = Integer.parseInt(minSalary);
+        int salaryMax = Integer.parseInt(maxSalary);
+        Job job = new Job(jobId, jobTitle, salaryMin, salaryMax);
         return jdao.updateJob(job);
     }
     /*
     * controller untuk menghapus jobs
     */
-    public boolean deleteJob(Job job){
+    public boolean deleteJob(String jobId, String jobTile) {
+        Job job = new Job(jobId, jobTile);
         return jdao.deleteJob(job);
     }
     

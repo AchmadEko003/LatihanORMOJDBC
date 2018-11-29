@@ -206,7 +206,6 @@ public class JobDAOTest {
         System.out.println("insertJob");
         Job job = new Job("Adi", "Tukang ketik2");
         JobDAO instance = new JobDAO(sessionFactory);
-        boolean expResult = false;
         boolean result = instance.insertJob(job);
         assertNotNull(result);
         // TODO review the generated test code and remove the default call to fail.
