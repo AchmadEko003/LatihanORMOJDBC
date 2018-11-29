@@ -58,19 +58,18 @@ public class LatihanORMOJDBC {
 //            System.out.println(region.getRegionName());
 //        }
         //System.out.println(edao.getEmployeeId(98).getLastName());
-
         //BigDecimal nil = BigDecimal.valueOf(209);
 //        Employee emp = new Employee("209", "e", "k", "o", "12378", "09-09-2008", "IT_PROG", "5000", "0.0", "100", "100");
-        //Employee e = new Employee(100);
-        System.out.println(ec.gets());
+        Employee e = new Employee(211, "k");
+        System.out.println(ec.deleteData(e));
         //Employee emp = new Employee(210, "e", "k", "o", "12378", "09-09-2008", 5000, 0.0, "100", e, "IT_PROG");
-        System.out.println(ec.insertEmployee("210", "e", "k", "o", "12378", "09/09/2018", "IT_PROG", "5000", "0.0", "100", "100"));
-        //System.out.println(ec.deleteData(region));
+//        System.out.println(ec.insertEmployee("211", "e", "k", "o", "12378", "09/09/2018", "IT_PROG", "5000", "0.0", "100", "100"));
+        //System.out.println(ec.updateEmployee("210", "e", "k", "ow", "12378", "09/09/2018", "IT_PROG", "5000", "0.0", "100", "100"));
+//        System.out.println(edao.delete(e));
         //System.out.println(rc.updateData(region));
 
-//        BigDecimal nil = BigDecimal.valueOf(12);
-//        Region region = new Region(nil, "Kal");
-//        System.out.println(rc.deleteData(region));
+//        Employee e = new Employee(209);
+//        System.out.println(edao.delete(e));
 //        System.out.println(rc.updateData(region));
 //        for(Employee emp : edao.searchData("Eko")){
 //            System.out.println(emp.getLastName());

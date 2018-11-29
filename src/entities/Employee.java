@@ -91,6 +91,11 @@ public class Employee implements Serializable {
         this.employeeId = employeeId;
     }
 
+    public Employee(Integer employeeId, String lastName) {
+        this.employeeId = employeeId;
+        this.lastName = lastName;
+    }
+
     public Employee(Integer employeeId, String lastName, String email, Date hireDate) {
         this.employeeId = employeeId;
         this.lastName = lastName;
@@ -128,7 +133,7 @@ public class Employee implements Serializable {
         this.departmentList = departmentList;
     }
 
-    public Employee(int employeeid, String firstName, String lastName, String email, String phoneNumber, Date dates, Job jobId, short sal, short com, Employee managerid, Department department) {
+    public Employee(int employeeid, String firstName, String lastName, String email, String phoneNumber, Date dates, Job jobId, short sal, double com, Employee managerid, Department department) {
         this.employeeId = employeeid;
         this.firstName = firstName;
         this.lastName = lastName;
