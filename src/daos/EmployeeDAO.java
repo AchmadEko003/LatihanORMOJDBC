@@ -149,6 +149,25 @@ public class EmployeeDAO {
         return datas;
     }
 
+    public int lastId() {
+        int id = 0;
+        Employee datas = new Employee();
+        Session session = this.factory.openSession();
+        Transaction transaction = session.beginTransaction();
+        try {
+            datas = (Employee) session.createQuery("from employees where EMPLOYEE_ID=(select max(EMPLOYEE_ID) from employees )").list();
+            transaction.commit();
+        } catch (Exception e) {
+            e.printStackTrace();
+            if (transaction != null) {
+                transaction.rollback();
+            }
+        } finally {
+            session.close();
+        }
+        return id;
+    }
+
     public boolean insert(Employee employee) {
         return getdatas(employee, "save");
     }

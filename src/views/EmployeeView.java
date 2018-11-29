@@ -54,7 +54,7 @@ public class EmployeeView extends javax.swing.JFrame {
                 String isi4 = employee.getEmail();
                 String isi5 = employee.getPhoneNumber();
                 String isi6 = String.valueOf(employee.getHireDate());
-                String isi7 = String.valueOf(employee.getJobId().getJobTitle());
+                String isi7 = String.valueOf(employee.getJob().getJobTitle());
                 String isi8 = String.valueOf(employee.getSalary());
                 String isi9 = String.valueOf(employee.getCommissionPct());
                 String isi10 = String.valueOf(employee.getManagerId().getLastName());
@@ -469,23 +469,23 @@ public class EmployeeView extends javax.swing.JFrame {
 
     private void deletebuttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deletebuttonActionPerformed
         // TODO add your handling code here:
-        int dialogButton = JOptionPane.YES_NO_OPTION;
-        int dialogResult = JOptionPane.showConfirmDialog(null, "Hapus data?", "Warning", dialogButton);
-        if (dialogResult == JOptionPane.YES_OPTION) {
-            String nil = employeeid_field.getText();
-            int id = Integer.valueOf(nil);
-            Employee employee = new Employee(id);
-            if (employeeController.deleteData(employee) == true) {
-                employeeid_field.setEnabled(true);
-                bindingTable(employeeController.gets());
-                JOptionPane.showConfirmDialog(null, "Data berhasil di hapus", "Warning", dialogButton);
-                //kosongData();
-                employeeid_field.setEnabled(false);
-                //employeeid_field.setText(employeeController.lastId());
-            } else {
-                JOptionPane.showConfirmDialog(null, "Data gagal di hapus", "Warning", dialogButton);
-            }
-        }
+//        int dialogButton = JOptionPane.YES_NO_OPTION;
+//        int dialogResult = JOptionPane.showConfirmDialog(null, "Hapus data?", "Warning", dialogButton);
+//        if (dialogResult == JOptionPane.YES_OPTION) {
+//            String nil = employeeid_field.getText();
+//            int id = Integer.valueOf(nil);
+//            Employee employee = new Employee(id);
+//            if (employeeController.deleteData(employee) == true) {
+//                employeeid_field.setEnabled(true);
+//                bindingTable(employeeController.gets());
+//                JOptionPane.showConfirmDialog(null, "Data berhasil di hapus", "Warning", dialogButton);
+//                //kosongData();
+//                employeeid_field.setEnabled(false);
+//                //employeeid_field.setText(employeeController.lastId());
+//            } else {
+//                JOptionPane.showConfirmDialog(null, "Data gagal di hapus", "Warning", dialogButton);
+//            }
+//        }
     }//GEN-LAST:event_deletebuttonActionPerformed
 
     private void update_ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_update_ButtonActionPerformed

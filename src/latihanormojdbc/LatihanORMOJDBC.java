@@ -5,10 +5,8 @@
  */
 package latihanormojdbc;
 
-import controllers.DepartmentController;
 import controllers.EmployeeControllers;
 import controllers.RegionControllers;
-import daos.DepartmentDAO;
 import daos.EmployeeDAO;
 import daos.RegionDAO;
 import entities.Country;
@@ -36,7 +34,8 @@ public class LatihanORMOJDBC {
         RegionControllers rc = new RegionControllers(sessionFactory);
         EmployeeControllers ec = new EmployeeControllers(sessionFactory);
         EmployeeDAO edao = new EmployeeDAO(sessionFactory);
-        DepartmentController dc = new DepartmentController(sessionFactory);
+        
+        //DepartmentController dc = new DepartmentController(sessionFactory);
 
 //        for (Region allregion : rdao.getAllRegion()) {
 //            System.out.println(allregion.getRegionName());
@@ -60,20 +59,25 @@ public class LatihanORMOJDBC {
         //System.out.println(edao.getEmployeeId(98).getLastName());
         //BigDecimal nil = BigDecimal.valueOf(209);
 //        Employee emp = new Employee("209", "e", "k", "o", "12378", "09-09-2008", "IT_PROG", "5000", "0.0", "100", "100");
-//        Employee e = new Employee(211, "k");
 //        System.out.println(ec.deleteData(e));
         //Employee emp = new Employee(210, "e", "k", "o", "12378", "09-09-2008", 5000, 0.0, "100", e, "IT_PROG");
-        System.out.println(ec.insertEmployee("55", "e", "k", "p", "12378", "09/09/2018", "IT_PROG", "5000", "0.0", "100", "100"));
-        System.out.println(ec.updateEmployee("210", "e", "k", "ow", "12378", "09/09/2018", "IT_PROG", "5000", "0.0", "100", "100"));
-//        System.out.println(edao.delete(e));
-        //System.out.println(rc.updateData(region));
+        
+//EMPLOYEE
+        
+        System.out.println(ec.insertEmployee("e", "k", "pooow", "12378", "09/09/2018", "IT_PROG", "5000", "0.0", "100", "100", "217"));
+        //System.out.println(ec.updateEmployee("e", "ko", "odaww", "123118", "09/10/2018", "IT_PROG", "5000", "0.0", "100", "100", "217"));
+        
+//        Employee e = new Employee(Integer.valueOf(109));
+//        System.out.println(ec.getEmployeeId(e));
 
-//        Employee e = new Employee(209);
-//        System.out.println(edao.delete(e));
-//        System.out.println(rc.updateData(region));
 //        for(Employee emp : edao.searchData("Eko")){
 //            System.out.println(emp.getLastName());
 //        }
+
+//        Region r = new Region(BigDecimal.valueOf(300));
+//        System.out.println(r);
+//        System.out.println(edao.delete(e));
+//        System.out.println(rc.updateData(region));
         //----------------------------------------getAll,getid,search Employees---------------------------------------
 //        EmployeeDAO edao = new EmployeeDAO(sessionFactory);
 //        System.out.println("GET ALL");

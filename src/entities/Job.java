@@ -47,7 +47,7 @@ public class Job implements Serializable {
     private Integer minSalary;
     @Column(name = "MAX_SALARY")
     private Integer maxSalary;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "jobId", fetch = FetchType.LAZY)
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "job`", fetch = FetchType.LAZY)
     private List<Employee> employeeList;
 
     public Job() {

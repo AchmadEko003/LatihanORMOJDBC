@@ -80,7 +80,7 @@ public class Employee implements Serializable {
     private Employee managerId;
     @JoinColumn(name = "JOB_ID", referencedColumnName = "JOB_ID", nullable = false)
     @ManyToOne(optional = false, fetch = FetchType.LAZY)
-    private Job jobId;
+    private Job job;
     @OneToMany(mappedBy = "managerId", fetch = FetchType.LAZY)
     private List<Department> departmentList;
 
@@ -91,9 +91,9 @@ public class Employee implements Serializable {
         this.employeeId = employeeId;
     }
 
-    public Employee(Integer employeeId, String lastName) {
+    public Employee(Integer employeeId, String email) {
         this.employeeId = employeeId;
-        this.lastName = lastName;
+        this.email = email;
     }
 
     public Employee(Integer employeeId, String lastName, String email, Date hireDate) {
@@ -114,7 +114,7 @@ public class Employee implements Serializable {
         this.commissionPct = commissionPct;
         this.departmentId = departmentId;
         this.managerId = managerId;
-        this.jobId = jobId;
+        this.job = jobId;
     }
 
     public Employee(Integer employeeId, String firstName, String lastName, String email, String phoneNumber, Date hireDate, BigDecimal salary, BigDecimal commissionPct, Department departmentId, List<Employee> employeeList, Employee managerId, Job jobId, List<Department> departmentList) {
@@ -129,11 +129,11 @@ public class Employee implements Serializable {
         this.departmentId = departmentId;
         this.employeeList = employeeList;
         this.managerId = managerId;
-        this.jobId = jobId;
+        this.job = jobId;
         this.departmentList = departmentList;
     }
 
-    public Employee(int employeeid, String firstName, String lastName, String email, String phoneNumber, Date dates, Job jobId, short sal, double com, Employee managerid, Department department) {
+    public Employee(String firstName, String lastName, String email, String phoneNumber, Date dates, Job jobId, short sal, double com, Employee managerid, Department department, int employeeid) {
         this.employeeId = employeeid;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -144,7 +144,7 @@ public class Employee implements Serializable {
         this.commissionPct = BigDecimal.valueOf(com);
         this.departmentId = department;
         this.managerId = managerid;
-        this.jobId = jobId;
+        this.job = jobId;
     }
 
     public Integer getEmployeeId() {
@@ -236,12 +236,12 @@ public class Employee implements Serializable {
         this.managerId = managerId;
     }
 
-    public Job getJobId() {
-        return jobId;
+    public Job getJob() {
+        return job;
     }
 
-    public void setJobId(Job jobId) {
-        this.jobId = jobId;
+    public void setJob(Job jobId) {
+        this.job = jobId;
     }
 
     @XmlTransient
