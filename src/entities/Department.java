@@ -77,7 +77,6 @@ public class Department implements Serializable {
         this.managerId = managerId;
         this.locationId = locationId;
     }
-    
 
     public Short getDepartmentId() {
         return departmentId;

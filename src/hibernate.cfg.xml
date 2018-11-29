@@ -42,9 +42,9 @@ Contributor(s):
 <hibernate-configuration>
   <session-factory>
     <property name="hibernate.connection.driver_class">oracle.jdbc.OracleDriver</property>
-    <property name="hibernate.connection.username">mydba</property>
-    <property name="hibernate.connection.password">mydba</property>
-    <property name="hibernate.connection.url">jdbc:oracle:thin:@oel64:1521:XE</property>
+    <property name="hibernate.connection.username">system</property>
+    <property name="hibernate.connection.password">ekoeko123</property>
+    <property name="hibernate.connection.url">jdbc:oracle:thin:@localhost:1521:XE</property>
     <property name="hibernate.connection.autocommit">true</property>
     <property name="hibernate.dialect">org.hibernate.dialect.OracleDialect</property>
     <property name="hibernate.default_schema">HR</property>
